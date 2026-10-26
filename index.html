@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorting Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="panel sidebar">
+      <label class="label" for="algo">Algorithm</label>
+      <select id="algo">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="insertion">Insertion Sort</option>
+        <option value="shell">Shell Sort</option>
+        <option value="merge">Merge Sort</option>
+        <option value="quick">Quick Sort</option>
+        <option value="heap">Heap Sort</option>
+      </select>
+
+      <label class="label" for="input">Input array</label>
+      <textarea id="input" rows="3">8, 3, 6, 1, 9, 2, 7, 4</textarea>
+      <p class="hint">Enter up to 20 integers, separated by commas or spaces.</p>
+      <button id="apply" class="btn">Apply array</button>
+
+      <span class="label">Actions</span>
+      <button id="start" class="btn primary">▶ Start sorting</button>
+      <button id="pause" class="btn" disabled>Ⅱ Pause</button>
+      <button id="reset" class="btn">↺ Reset</button>
+
+      <label class="label" for="speed">Animation speed</label>
+      <input id="speed" type="range" min="1" max="10" value="4">
+      <div class="range-labels"><span>Slow</span><span>Fast</span></div>
+
+      <div class="complexity">
+        <span class="label">Complexity</span>
+        <div class="row"><span>Time</span><b id="time-c">O(n²)</b></div>
+        <div class="row"><span>Space</span><b id="space-c">O(1)</b></div>
+      </div>
+    </aside>
+
+    <main class="panel main">
+      <header class="main-head">
+        <h2 id="count">8 elements</h2>
+        <div class="legend">
+          <span><i class="dot unsorted"></i>Unsorted</span>
+          <span><i class="dot checking"></i>Checking</span>
+          <span><i class="dot pivot"></i>Pivot</span>
+          <span><i class="dot sorted"></i>Sorted</span>
+        </div>
+      </header>
+
+      <div id="stage" class="stage"></div>
+
+      <div class="current" id="current">
+        <span class="label">Current step</span>
+        <h3 id="curTitle">Ready when you are</h3>
+        <p id="curDesc">Start sorting to see each comparison and movement explained here.</p>
+      </div>
+    </main>
+
+    <aside class="panel steps">
+      <div class="steps-head"><span id="stepText">0 steps</span></div>
+      <ol id="stepList">
+        <li class="empty-step">Sorting explanations will appear here.</li>
+      </ol>
+      <div class="steps-foot">Pause to review an earlier step.</div>
+    </aside>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
